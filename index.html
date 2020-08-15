@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quete</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="quotes.js"></script>
+    <script>
+        // const QUOTEBANK = [
+        //     {
+        //         author: "thien",
+        //         quote: 'adasdsd asdasdad sadasdasd sdadasd asdasdasda asdadadas asdasdasd'
+        //     },
+        //     {
+        //         author: "hung",
+        //         quote: 'nnnnn'
+        //     },
+        //     {
+        //         author: "thanh",
+        //         quote: 'ccccasd'
+        //     }
+        // ]
+        window.onload = init;
+        function init() {
+            generationQoute()
+        }
+        const generationQoute = () => {
+            let quoteSize = QUOTEBANK.length;
+            let randonIndex = Math.floor(Math.random() * quoteSize);
+            let randomQuoteData = QUOTEBANK[randonIndex];
+            let tweetLink = 'https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text=%22Strive%20not%20to%20be%20a%20success%2C%20but%20rather%20to%20be%20of%20value.%22%20Albert%20Einstein';
+
+            document.getElementById('tweet-quote').href = tweetLink;
+            document.getElementById('text').innerText = randomQuoteData.quote
+            document.getElementById('author').innerText = randomQuoteData.author;
+        }
+    </script>
+    <style>
+        * {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row py-5">
+            <wrapper id="quote-box">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <div id="text"></div>
+                        </h5>
+                        <p class="card-text"><div id="author"></div></p>
+                        <button id="new-quote" onclick="generationQoute();" class="btn btn-block btn-success">New Qoute</button>
+                        <a id="tweet-quote" href="#" class="btn btn-block btn-primary">Tweet Quote</a>
+                    </div>
+                </div>  
+            </wrapper>
+        </div>
+    </div>
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+
+</html>
